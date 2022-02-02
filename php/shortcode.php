@@ -6,7 +6,8 @@
 	$result = $wpdb->get_results("SELECT * FROM $table_name WHERE id='$id'");
 	
 	//extract content from db row
-	foreach ($result as $results) {
+	foreach ($result as $results) 
+	{
 		$tablename = $results->tablename;
 		$numrow = $results->rows;
 		$table_id = $results->id;

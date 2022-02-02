@@ -1,5 +1,5 @@
 <?php 
-	$this_id = $_GET['id'];
+	$this_id = esc_html($_GET['id']);
 	$table_name = $wpdb->prefix . "websimon_tables";
 	$result = $wpdb->get_results("SELECT * FROM $table_name WHERE id='$this_id'");
 	
@@ -61,7 +61,7 @@ echo '
 	if (isset($_GET['column_change']) && $_GET['column_change'] == '1') {
 		echo '
 		<div id="websimon-tables-message">
-			You have added or deleted a column.<br />Please note that your settings for column widths might need a change in <a href="?page=websimon_tables&action=edit_style&id=' . $this_id . '">Edit table structure and style</a>
+			You table was changed.<br />Please note that your settings for column widths might need a change in <a href="?page=websimon_tables&action=edit_style&id=' . $this_id . '">Edit table structure and style</a> if you edited your columns. 
 		</div>
 		';
 	}
@@ -212,15 +212,5 @@ do_shortcode($shortcode)
 </form>
 
 </div></p>
-<div id="contribute">
-<h4>Please donate 10$</h4>
-If you donate 10$ to this projekt you will encourage further develepment and updates for this plugin.
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="QMBY63UZJE4TY">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/sv_SE/i/scr/pixel.gif" width="1" height="1">
-</form>
-</div>
 ';
 ?>
